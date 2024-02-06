@@ -18,9 +18,17 @@
       <li><a href="#" class="nav-link px-2">Map</a></li>
       <li><a href="#" class="nav-link px-2">Events</a></li>
     </ul>
+
+    <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?key=Ihr_Bing_Maps_API_Schlüssel'></script>
   </header>
   <!---->
+    
+  <!---->
   <body>
+    <main>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3537.5678713984466!2d7.01146644939424!3d51.17414537521034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8d302550eaaab%3A0xe8c2a189f5302387!2sMAKU%20Restaurant%20%26%20Bar!5e0!3m2!1sde!2sde!4v1707234319272!5m2!1sde!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </main>
+
     <div class="">
       <footer
         class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -44,5 +52,24 @@
         </ul>
       </footer>
     </div>
+    <script> 
+        function loadMapScenario() {
+            if (Microsoft && Microsoft.Maps) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var map = new Microsoft.Maps.Map(document.getElementById('map'), {
+                        credentials: 'Ihr_Bing_Maps_API_Schlüssel',
+                        center: new Microsoft.Maps.Location(position.coords.latitude, position.coords.longitude),
+                        zoom: 15
+                    });
+ 
+                    var pushpin = new Microsoft.Maps.Pushpin(map.getCenter(), null);
+                    map.entities.push(pushpin);
+                });
+            } else {
+                alert('Bing Maps wurde nicht richtig geladen.');
+            }
+        }
+        document.addEventListener('DOMContentLoaded', loadMapScenario);
+    </script>
   </body>
 </html>
