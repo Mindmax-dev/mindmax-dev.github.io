@@ -1,3 +1,3 @@
 # mindmax-dev.github.io
 
-This is our Read me
+This is our Read me.
