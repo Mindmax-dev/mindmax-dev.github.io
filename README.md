@@ -1,3 +1,3 @@
 # mindmax-dev.github.io
 
-Hals Maul Tom
+This is our Read me
